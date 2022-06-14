@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_weight="1"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <LinearLayout
+        android:id="@+id/llTitle"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_baseline_arrow_back_24"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="BNI-AM Inspiring Equity Fund aasdasdas asdas das"
+            android:lines="3"
+            android:ellipsize="end"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Jenis reksa dana"/>
+    <LinearLayout
+        android:id="@+id/llType"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Saham"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelImbalHasil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Imbal hasil"/>
+    <LinearLayout
+        android:id="@+id/llImbalhasil"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvImbalHasil"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="5,50% / 5 thn"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelDanaKelolaan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Dana kelolaan"/>
+    <LinearLayout
+        android:id="@+id/llDanaKelolaan"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvDanaKelolaan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="2,12 Miliar"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelMinPembelian"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Min. pembelian"/>
+    <LinearLayout
+        android:id="@+id/llMinPembelian"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvMinPembelian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="100 Juta"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelJangaWaktu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Jangka waktu"/>
+    <LinearLayout
+        android:id="@+id/llJangkaWaktu"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvJangkaWaktu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="5 Tahun"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelTingkatResiko"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Tingkat resiko"/>
+    <LinearLayout
+        android:id="@+id/llTingkatResiko"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTingkatResiko"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Tinggi"/>
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tvLabelPeluncuran"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Peluncuran"/>
+    <LinearLayout
+        android:id="@+id/llPeluncuran"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="5dp"
+        android:background="@drawable/bg_rounded"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent">
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPeluncuran"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="16 Apr 2024"/>
+    </LinearLayout>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:text="Detail"
+        android:textColor="#4B8B26"
+        app:strokeColor="#4B8B26"
+        android:textAllCaps="false"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="@style/ThemeOverlay.Material3.Button.TextButton"
+        android:text="Beli"
+        android:textColor="@color/black"
+        android:textAllCaps="false"
+        android:backgroundTint="#82C341"/>
+</LinearLayout>

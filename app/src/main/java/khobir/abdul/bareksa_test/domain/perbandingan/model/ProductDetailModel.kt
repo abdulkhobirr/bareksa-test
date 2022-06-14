@@ -1,0 +1,31 @@
+package khobir.abdul.bareksa_test.domain.perbandingan.model
+
+
+data class ProductDetailModel(
+    val category: String,
+    val categoryId: String,
+    val currency: String,
+    val custody: String,
+    val inceptionDate: String,
+    val avatarUrl: String,
+    val imName: String,
+    val minBalance: String,
+    val minRedemption: String,
+    val minSubscription: String,
+    val nav: Float,
+    val returnCurrentYear: String,
+    val returnFiveYear: String,
+    val returnFourYear: String,
+    val returnInceptionGrowth: String,
+    val returnOneDay: String,
+    val returnOneMonth: String,
+    val returnOneWeek: String,
+    val returnOneYear: String,
+    val returnSixMonth: String,
+    val returnThreeMonth: String,
+    val returnThreeYear: String,
+    val returnTwoYear: String,
+    val totalUnit: String,
+    val type: String,
+    val typeId: String,
+)

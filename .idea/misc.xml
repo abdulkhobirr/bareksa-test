@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/drawable/bg_button_detail.xml" value="0.209" />
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/drawable/bg_rounded.xml" value="0.209" />
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/layout/activity_main.xml" value="0.3692708333333333" />
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/layout/custom_perbandingan_view.xml" value="0.3692708333333333" />
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/layout/fragment_dana_kelolaan.xml" value="0.3692708333333333" />
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/layout/fragment_imbal_hasil.xml" value="0.3692708333333333" />
+        <entry key="..\:/AndroidProjects/bareksatest/app/src/main/res/layout/item_imbal_hasil.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
