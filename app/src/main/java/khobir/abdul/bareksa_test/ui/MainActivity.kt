@@ -5,10 +5,12 @@ import android.os.Bundle
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import khobir.abdul.bareksa_test.R
 import khobir.abdul.bareksa_test.databinding.ActivityMainBinding
 import khobir.abdul.bareksa_test.utils.CommonPagerAdapter
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {

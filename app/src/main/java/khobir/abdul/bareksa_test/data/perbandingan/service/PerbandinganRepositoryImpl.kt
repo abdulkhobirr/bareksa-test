@@ -14,7 +14,7 @@ class PerbandinganRepositoryImpl(
     private val perbandinganDataMapper: PerbandinganDataMapper,
     private val perbandinganChartDataMapper: PerbandinganChartDataMapper): PerbandinganRepository {
 
-    override suspend fun getPerbandinganData(): ResultWrapper<PerbandinganDataModel> {
+    override suspend fun getPerbandinganData(): ResultWrapper<List<PerbandinganDataModel>> {
         return try {
             apiClient.getPerbandinganData().mapToResult(perbandinganDataMapper)
         } catch (e: Exception) {

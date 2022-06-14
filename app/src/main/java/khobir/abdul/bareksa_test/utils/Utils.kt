@@ -1,21 +1,31 @@
 package khobir.abdul.bareksa_test.utils
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkInfo
+import android.util.Log
+import java.lang.Exception
 
 object Utils {
-    fun isNetworkAvailable(context: Context): Boolean {
+    fun simplifyNumber(number: String): String {
+        var textToDisplay = ""
         return try {
-            val manager =
-                context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-            var networkInfo: NetworkInfo? = null
-            if (manager != null) {
-                networkInfo = manager.activeNetworkInfo
+            var len = number.length
+            var temp = number.toInt()
+            var count = 0
+            while(len>3){
+                temp = (temp/1000)
+                len = temp.toString().length
+                count++
+                Log.d("TAG", "simplifyNumberTemp: $temp")
+                Log.d("TAG", "simplifyNumberLen: $len")
+                Log.d("TAG", "simplifyNumberCounter: $count")
             }
-            networkInfo != null && networkInfo.isConnected
-        } catch (e: NullPointerException) {
-            false
+            var suffix = ""
+            if (count==1) suffix = "Ribu"
+            if (count==2) suffix = "Juta"
+            if (count==3) suffix = "Miliar"
+            textToDisplay = String.format("$temp $suffix")
+            return textToDisplay
+        } catch (e: Exception) {
+            return ""
         }
     }
 }

@@ -36,7 +36,7 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideOkHttpClient(@Named("ApiToken") token: String, chuckerInterceptor: ChuckerInterceptor): OkHttpClient {
+    fun provideOkHttpClient(chuckerInterceptor: ChuckerInterceptor): OkHttpClient {
         return OkHttpClientFactory.create(showDebugLog = true, chuckerInterceptor =  chuckerInterceptor)
     }
 

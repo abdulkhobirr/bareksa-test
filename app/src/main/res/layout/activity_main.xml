@@ -23,7 +23,9 @@
             android:layout_marginLeft="10dp"
             android:text="Perbandingan"
             android:textSize="20sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:fontFamily="@font/montserrat_bold"/>
     </LinearLayout>
 
     <com.google.android.material.tabs.TabLayout
