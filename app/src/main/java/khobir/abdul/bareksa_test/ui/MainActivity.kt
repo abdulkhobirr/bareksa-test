@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
             adapter = pagerAdapter
             offscreenPageLimit = fragmentList.size
-            isUserInputEnabled = true
+            isUserInputEnabled = false
         }
         binding.tabLayoutHome.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {

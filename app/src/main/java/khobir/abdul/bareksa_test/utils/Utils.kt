@@ -1,31 +1,29 @@
 package khobir.abdul.bareksa_test.utils
 
-import android.util.Log
-import java.lang.Exception
+import java.text.SimpleDateFormat
+import java.util.*
 
 object Utils {
-    fun simplifyNumber(number: String): String {
-        var textToDisplay = ""
-        return try {
-            var len = number.length
-            var temp = number.toInt()
-            var count = 0
-            while(len>3){
-                temp = (temp/1000)
-                len = temp.toString().length
-                count++
-                Log.d("TAG", "simplifyNumberTemp: $temp")
-                Log.d("TAG", "simplifyNumberLen: $len")
-                Log.d("TAG", "simplifyNumberCounter: $count")
-            }
-            var suffix = ""
-            if (count==1) suffix = "Ribu"
-            if (count==2) suffix = "Juta"
-            if (count==3) suffix = "Miliar"
-            textToDisplay = String.format("$temp $suffix")
-            return textToDisplay
-        } catch (e: Exception) {
-            return ""
+    fun formatPrice(number: String): String {
+        val double = number.toDouble()
+        return when{
+            double<=1000 -> String.format("%.0f", double)
+            1000<=double && double<999999 -> String.format("%.1f Ribu", double/1000).replace(".0", "")
+            1000000<=double && double<999999999 -> String.format("%.1f Juta", double/1000000).replace(".0", "")
+            1000000000<=double && double<999999999999 -> String.format("%.2f Miliar", double/1000000000).replace(".0", "")
+            else -> String.format("%.2f Triliun", double/1000000000000).replace(".0", "")
         }
+    }
+
+    fun formatDateToMillis(date: String): Long {
+        val sourceFormat = SimpleDateFormat("yyyy-MM-dd")
+        val parsedDate: Date = sourceFormat.parse(date)
+        return parsedDate.time
+    }
+
+    fun formatDate(expectedFormat: String, timeInMillis: Long): String? {
+        val format = SimpleDateFormat(expectedFormat)
+        val formatted = format.format(timeInMillis)
+        return formatted
     }
 }

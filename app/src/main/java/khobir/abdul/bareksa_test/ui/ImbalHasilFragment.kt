@@ -1,20 +1,40 @@
 package khobir.abdul.bareksa_test.ui
 
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.github.mikephil.charting.components.MarkerView
+import com.github.mikephil.charting.components.XAxis
+import com.github.mikephil.charting.data.Entry
+import com.github.mikephil.charting.data.LineData
+import com.github.mikephil.charting.data.LineDataSet
+import com.github.mikephil.charting.highlight.Highlight
+import com.github.mikephil.charting.listener.ChartTouchListener
+import com.github.mikephil.charting.listener.OnChartGestureListener
+import com.github.mikephil.charting.listener.OnChartValueSelectedListener
+import com.github.mikephil.charting.utils.MPPointF
 import com.google.android.material.tabs.TabLayout
+import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
+import khobir.abdul.bareksa_test.R
 import khobir.abdul.bareksa_test.databinding.FragmentImbalHasilBinding
 import khobir.abdul.bareksa_test.ui.custom.ImbalHasilType
+import khobir.abdul.bareksa_test.utils.AxisValueFormatter
 import khobir.abdul.bareksa_test.utils.ResultWrapper
+import khobir.abdul.bareksa_test.utils.Utils
+import khobir.abdul.bareksa_test.utils.YAxisValueFormatter
 
 @AndroidEntryPoint
 class ImbalHasilFragment : Fragment() {
-    private var _binding : FragmentImbalHasilBinding ?= null
+    private var _binding : FragmentImbalHasilBinding?= null
     private val binding get() = _binding!!
 
     private val viewModel: PerbandinganViewModel by viewModels()
@@ -34,6 +54,80 @@ class ImbalHasilFragment : Fragment() {
         viewModel.getChartData()
         viewModel.getPerbandinganData()
         initTab()
+        setupChart()
+    }
+
+    private fun setupChart(){
+        binding.lineChart.description.isEnabled = false
+        binding.lineChart.marker = object : MarkerView(requireContext(), R.layout.item_tooltip) {
+            override fun refreshContent(e: Entry?, highlight: Highlight?) {
+                val v = this.findViewById<ImageView>(R.id.ivTooltip)
+                when(highlight?.dataSetIndex) {
+                    0 -> {
+                        v?.setImageResource(R.drawable.bg_circle_green)
+                    }
+                    1 -> {
+                        v?.setImageResource(R.drawable.bg_circle_purple)
+                    }
+                    2 -> {
+                        v?.setImageResource(R.drawable.bg_circle_blue)
+                    }
+                }
+                super.refreshContent(e, highlight)
+            }
+
+            override fun getOffset(): MPPointF {
+                return MPPointF(-(width / 2).toFloat(), (-height/2).toFloat())
+            }
+        }
+        binding.lineChart.setDrawGridBackground(true)
+        binding.lineChart.setGridBackgroundColor(ContextCompat.getColor(requireContext(),android.R.color.transparent))
+        binding.lineChart.axisLeft.setDrawGridLines(false)
+        binding.lineChart.xAxis.setDrawGridLines(false)
+        binding.lineChart.setTouchEnabled(true)
+        binding.lineChart.isDragEnabled = true
+        binding.lineChart.setScaleEnabled(false)
+        binding.lineChart.axisLeft.isEnabled = false
+        binding.lineChart.axisRight.isEnabled = true
+        binding.lineChart.legend.isEnabled = false
+        binding.lineChart.setOnChartValueSelectedListener(object : OnChartValueSelectedListener
+        {
+            override fun onValueSelected(e: Entry, h: Highlight?) {
+                if (h!=null) {
+                    val selected = viewModel.onChartSelected(e, h)
+                    Log.d("TAG", "onValueSelected: ${selected.first}, ${selected.second}")
+                    binding.lineChart.highlightValues(selected.first.toTypedArray())
+                    if (selected.second.count()==3){
+                        binding.tvPercentGreen.text = String.format("${selected.second[0].y} %%")
+                        binding.tvPercentPurple.text = String.format("${selected.second[1].y} %%")
+                        binding.tvPercentBlue.text = String.format("${selected.second[2].y} %%")
+                        binding.tvDate.text = Utils.formatDate("dd MMM yyyy", selected.second[0].x.toLong())
+                    }
+                }
+                val x = e.x.toString()
+                val y = e.y
+
+                when(h?.dataSetIndex) {
+                    0 -> {
+                        binding.tvPercentGreen.text = String.format("$y %%")
+                    }
+                    1 -> {
+                        binding.tvPercentPurple.text = String.format("$y %%")
+                    }
+                    2 -> {
+                        binding.tvPercentBlue.text = String.format("$y %%")
+                    }
+                }
+            }
+
+            override fun onNothingSelected() {}
+        })
+        binding.lineChart.xAxis.apply {
+            valueFormatter = AxisValueFormatter()
+            granularity = 1F
+            position = XAxis.XAxisPosition.BOTTOM
+        }
+        binding.lineChart.axisRight.valueFormatter = YAxisValueFormatter()
     }
 
     private fun initTab(){
@@ -75,6 +169,16 @@ class ImbalHasilFragment : Fragment() {
             when(it){
                 is ResultWrapper.Success -> {
                     binding.customPerbandinganView.setPerbandinganData(it.data)
+                }
+            }
+        }
+
+        viewModel.chartData.observe(viewLifecycleOwner) {
+            when(it){
+                is ResultWrapper.Success -> {
+                    val processedList = viewModel.processChartData(it.data)
+                    binding.lineChart.data = LineData(processedList)
+                    binding.lineChart.invalidate()
                 }
             }
         }

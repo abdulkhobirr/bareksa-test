@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.LinearLayout
@@ -25,9 +26,14 @@ class PerbandinganItemView @JvmOverloads constructor(
         val details = data.details
         binding.tvName.text = data.name
         binding.tvType.text = details.type
-        binding.tvMinPembelian.text = Utils.simplifyNumber(details.minSubscription)
+        binding.tvMinPembelian.text = Utils.formatPrice(details.minSubscription)
         binding.tvPeluncuran.text = details.inceptionDate
         binding.tvImbalHasil.text = String.format("${details.returnOneYear}%% / thn")
+        val danaKelolaan = details.nav*details.totalUnit.toFloat()
+        Log.d("TAG", "initView: ${data.name}")
+        Log.d("TAG", "initView: ${danaKelolaan.toLong()}")
+        val calculateDana = Utils.formatPrice(danaKelolaan.toString())
+        binding.tvDanaKelolaan.text = calculateDana
         Glide.with(context).load(details.avatarUrl).into(binding.ivItem)
         val color1 = Color.parseColor(color)
         setColorBg(color1)
@@ -45,11 +51,6 @@ class PerbandinganItemView @JvmOverloads constructor(
                 binding.tvJangkaWaktu.text = "5 Tahun"
                 binding.tvTingkatResiko.text = "Tinggi"
             }
-        }
-        when(data.codeName){
-            "NI002EQCDANSIE00" -> binding.tvDanaKelolaan.text = "3,64 Miliar"
-            "KI002MMCDANCAS00" -> binding.tvDanaKelolaan.text = "215,97 Miliar"
-            "TP002EQCEQTCRS00" -> binding.tvDanaKelolaan.text = "3,89 Triliun"
         }
     }
 

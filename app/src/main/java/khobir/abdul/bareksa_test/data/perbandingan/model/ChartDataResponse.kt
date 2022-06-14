@@ -10,5 +10,5 @@ data class ChartDataListResponse(
 data class ChartDataItemResponse(
     @SerializedName("date") val date: String,
     @SerializedName("value") val value: Float,
-    @SerializedName("growth") val growth: Float
+    @SerializedName("growth") val growth: Double
 )
