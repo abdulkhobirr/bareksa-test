@@ -51,5 +51,5 @@ enum class ImbalHasilType(val string: String) {
     ThreeYear("3Y"),
     FiveYear("5Y"),
     TenYear("10Y"),
-    ALL("ALL")
+    ALL("All")
 }

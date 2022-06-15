@@ -10,6 +10,8 @@ class XAxisValueFormatter: ValueFormatter() {
 
 class YAxisValueFormatter: ValueFormatter(){
     override fun getFormattedValue(value: Float): String {
-        return String.format("$value %%")
+        var string = ""
+        string = if (value.toInt()%10==0) String.format("${value.toString().replace(".0", "")} %%") else ""
+        return string
     }
 }

@@ -1,12 +1,12 @@
 package khobir.abdul.bareksa_test.ui.perbandingan
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.github.mikephil.charting.components.MarkerView
@@ -61,10 +61,13 @@ class ImbalHasilFragment : Fragment() {
             axisRight.setDrawAxisLine(false)
             axisRight.xOffset = 20f
             axisRight.isEnabled = true
+            axisRight.typeface = ResourcesCompat.getFont(requireContext(), R.font.montserrat_medium)
             axisRight.valueFormatter = YAxisValueFormatter()
+            axisRight.labelCount = 8
             xAxis.setDrawGridLines(false)
             xAxis.valueFormatter = XAxisValueFormatter()
             xAxis.granularity = 1F
+            xAxis.typeface = ResourcesCompat.getFont(requireContext(), R.font.montserrat_medium)
             xAxis.position = XAxis.XAxisPosition.BOTTOM
 
             marker = object : MarkerView(requireContext(), R.layout.item_tooltip) {
@@ -118,13 +121,13 @@ class ImbalHasilFragment : Fragment() {
         binding.tabLayoutHome.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
                 val type = when(tab.text.toString()){
-                    "1W" -> ImbalHasilType.OneWeek
-                    "1M" -> ImbalHasilType.OneMonth
-                    "1Y" -> ImbalHasilType.OneYear
-                    "3Y" -> ImbalHasilType.ThreeYear
-                    "5Y" -> ImbalHasilType.FiveYear
-                    "10Y" -> ImbalHasilType.TenYear
-                    "ALL" -> ImbalHasilType.ALL
+                    ImbalHasilType.OneWeek.string -> ImbalHasilType.OneWeek
+                    ImbalHasilType.OneMonth.string -> ImbalHasilType.OneMonth
+                    ImbalHasilType.OneYear.string -> ImbalHasilType.OneYear
+                    ImbalHasilType.ThreeYear.string -> ImbalHasilType.ThreeYear
+                    ImbalHasilType.FiveYear.string -> ImbalHasilType.FiveYear
+                    ImbalHasilType.TenYear.string -> ImbalHasilType.TenYear
+                    ImbalHasilType.ALL.string -> ImbalHasilType.ALL
                     else -> {
                         ImbalHasilType.OneYear
                     }
@@ -150,6 +153,8 @@ class ImbalHasilFragment : Fragment() {
                         binding.ivPercentBlue.visibility = View.VISIBLE
                         binding.tvPercentBlue.visibility = View.VISIBLE
                     }
+                    val tab = binding.tabLayoutHome.getTabAt(2)
+                    binding.tabLayoutHome.selectTab(tab)
                     viewModel.getChartData()
                 }
                 is ResultWrapper.Failure -> {
