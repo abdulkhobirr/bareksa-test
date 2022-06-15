@@ -2,7 +2,6 @@ package khobir.abdul.bareksa_test.ui.custom
 
 import android.content.Context
 import android.content.res.ColorStateList
-import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
 import android.view.LayoutInflater
@@ -21,7 +20,7 @@ class PerbandinganItemView @JvmOverloads constructor(
     private val binding = ItemImbalHasilBinding.inflate(LayoutInflater.from(context), this, true)
 
     private lateinit var data: PerbandinganDataModel
-    fun initView(data: PerbandinganDataModel, color: String, showLabel: Boolean){
+    fun initView(data: PerbandinganDataModel, color: Int, showLabel: Boolean){
         this.data = data
         val details = data.details
         binding.tvName.text = data.name
@@ -35,8 +34,7 @@ class PerbandinganItemView @JvmOverloads constructor(
         val calculateDana = Utils.formatPrice(danaKelolaan.toString())
         binding.tvDanaKelolaan.text = calculateDana
         Glide.with(context).load(details.avatarUrl).into(binding.ivItem)
-        val color1 = Color.parseColor(color)
-        setColorBg(color1)
+        setColorBg(color)
         hideLabel(showLabel)
         when(details.typeId){
             "1" -> {

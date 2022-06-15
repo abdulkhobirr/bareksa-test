@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:backgroundTint="#F5F5F5"
+    android:backgroundTint="@color/surface_bg"
     android:weightSum="3"
     android:gravity="center_horizontal">
 

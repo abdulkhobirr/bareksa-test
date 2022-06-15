@@ -1,4 +1,4 @@
-package khobir.abdul.bareksa_test.ui
+package khobir.abdul.bareksa_test.ui.perbandingan
 
 import android.os.Bundle
 import android.view.LayoutInflater

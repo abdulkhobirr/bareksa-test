@@ -6,8 +6,9 @@ import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
-import khobir.abdul.bareksa_test.R
 import khobir.abdul.bareksa_test.databinding.ActivityMainBinding
+import khobir.abdul.bareksa_test.ui.perbandingan.DanaKelolaanFragment
+import khobir.abdul.bareksa_test.ui.perbandingan.ImbalHasilFragment
 import khobir.abdul.bareksa_test.utils.CommonPagerAdapter
 
 @AndroidEntryPoint

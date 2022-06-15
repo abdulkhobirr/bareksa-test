@@ -6,7 +6,7 @@ import java.util.*
 object Utils {
     fun formatPrice(number: String): String {
         val double = number.toDouble()
-        return when{
+        return when {
             double<=1000 -> String.format("%.0f", double)
             1000<=double && double<999999 -> String.format("%.1f Ribu", double/1000).replace(".0", "")
             1000000<=double && double<999999999 -> String.format("%.1f Juta", double/1000000).replace(".0", "")
@@ -23,7 +23,6 @@ object Utils {
 
     fun formatDate(expectedFormat: String, timeInMillis: Long): String? {
         val format = SimpleDateFormat(expectedFormat)
-        val formatted = format.format(timeInMillis)
-        return formatted
+        return format.format(timeInMillis)
     }
 }

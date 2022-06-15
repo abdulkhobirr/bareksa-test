@@ -30,9 +30,7 @@
             tools:text="BNI-AM Inspiring Equity Fund aasdasdas asdas das"
             android:lines="3"
             android:ellipsize="end"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -41,8 +39,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Jenis reksa dana"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llType"
         android:orientation="vertical"
@@ -58,9 +55,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Saham"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -69,8 +64,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Imbal hasil"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llImbalhasil"
         android:orientation="vertical"
@@ -86,9 +80,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="5,50% / 5 thn"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -97,8 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Dana kelolaan"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llDanaKelolaan"
         android:orientation="vertical"
@@ -114,9 +105,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="2,12 Miliar"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -125,8 +114,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Min. pembelian"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llMinPembelian"
         android:orientation="vertical"
@@ -142,9 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="100 Juta"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -153,8 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Jangka waktu"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llJangkaWaktu"
         android:orientation="vertical"
@@ -170,9 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="5 Tahun"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -181,8 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Tingkat resiko"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llTingkatResiko"
         android:orientation="vertical"
@@ -198,9 +180,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="Tinggi"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.textview.MaterialTextView
@@ -209,8 +189,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:text="Peluncuran"
-        android:textSize="12sp"
-        android:fontFamily="@font/montserrat_medium"/>
+        style="@style/Text.Small.Medium"/>
     <LinearLayout
         android:id="@+id/llPeluncuran"
         android:orientation="vertical"
@@ -226,27 +205,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             tools:text="16 Apr 2024"
-            android:textColor="@color/black"
-            android:textSize="12sp"
-            android:fontFamily="@font/montserrat_medium"/>
+            style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="5dp"
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:text="Detail"
-        android:textColor="#4B8B26"
-        app:strokeColor="#4B8B26"
-        android:textAllCaps="false"/>
+        style="@style/Button.Stroke"
+        android:text="Detail" />
 
     <com.google.android.material.button.MaterialButton
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        style="@style/ThemeOverlay.Material3.Button.TextButton"
-        android:text="Beli"
-        android:textColor="@color/black"
-        android:textAllCaps="false"
-        android:backgroundTint="#82C341"/>
+        style="@style/Button.Solid"
+        android:text="Beli" />
 </LinearLayout>

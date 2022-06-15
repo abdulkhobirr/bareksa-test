@@ -7,7 +7,7 @@
     android:scrollbars="none"
     android:fillViewport="true"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.ImbalHasilFragment">
+    tools:context=".ui.perbandingan.ImbalHasilFragment">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -34,9 +34,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="-"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:fontFamily="@font/montserrat_bold"/>
+                style="@style/Text.Small.Bold.Black"/>
 
             <ImageView
                 android:layout_width="15dp"
@@ -49,9 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="-"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:fontFamily="@font/montserrat_bold"/>
+                style="@style/Text.Small.Bold.Black"/>
 
             <ImageView
                 android:layout_width="15dp"
@@ -64,9 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:text="-"
-                android:textColor="@color/black"
-                android:textSize="10sp"
-                android:fontFamily="@font/montserrat_bold"/>
+                style="@style/Text.Small.Bold.Black"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDate"
@@ -74,8 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:text="(20 Jan 2020)"
-                android:textSize="10sp"
-                android:fontFamily="@font/montserrat_medium"/>
+                style="@style/Text.XSmall.Medium"/>
         </LinearLayout>
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/lineChart"
@@ -89,10 +82,8 @@
             android:id="@+id/tabLayoutHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:tabTextAppearance="@style/TabTextAppearance"
-            app:layout_constraintTop_toBottomOf="@id/lineChart"
-            app:tabSelectedTextColor="#4B8B26"
-            app:tabIndicatorColor="#4B8B26"/>
+            style="@style/TabStyle"
+            app:layout_constraintTop_toBottomOf="@id/lineChart" />
         <khobir.abdul.bareksa_test.ui.custom.PerbandinganView
             android:id="@+id/customPerbandinganView"
             android:layout_width="match_parent"

@@ -1,4 +1,4 @@
-package khobir.abdul.bareksa_test.ui
+package khobir.abdul.bareksa_test.ui.perbandingan
 
 import android.graphics.Color
 import android.util.Log
@@ -55,7 +55,7 @@ class PerbandinganViewModel @Inject constructor(private val repository: Perbandi
                 entries.add(Entry(Utils.formatDateToMillis(item.date).toFloat(), item.growth.toFloat()))
             }
             val lineData = LineDataSet(entries, null)
-            lineData.mode = LineDataSet.Mode.LINEAR
+            lineData.mode = LineDataSet.Mode.CUBIC_BEZIER
             lineData.setDrawCircles(false)
             lineData.setDrawHorizontalHighlightIndicator(false)
             lineData.lineWidth = 3F

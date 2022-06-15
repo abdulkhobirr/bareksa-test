@@ -4,4 +4,54 @@
         <item name="textAllCaps">false</item>
         <item name="android:textAllCaps">false</item>
     </style>
+
+    <style name="TabStyle" parent="Widget.Material3.TabLayout">
+        <item name="tabTextColor">@color/text_grey</item>
+        <item name="tabSelectedTextColor">@color/text_green</item>
+        <item name="tabIndicatorColor">@color/text_green</item>
+        <item name="android:textAppearance">@style/TabTextAppearance</item>
+    </style>
+
+    <style name="Text" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="fontFamily">@font/montserrat_medium</item>
+    </style>
+
+    <style name="Text.XXL.Black" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Small.Bold.Black" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.Small.Medium" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="Text.Small.Medium.Black" parent="Text.Small.Medium">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="Text.XSmall.Medium" parent="Widget.MaterialComponents.TextView">
+        <item name="fontFamily">@font/montserrat_medium</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="Button.Stroke" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/text_green</item>
+        <item name="strokeColor">@color/text_green</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+    <style name="Button.Solid" parent="ThemeOverlay.Material3.Button.TextButton">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="backgroundTint">@color/green_solid</item>
+    </style>
 </resources>
