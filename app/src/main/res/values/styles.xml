@@ -9,7 +9,9 @@
         <item name="tabTextColor">@color/text_grey</item>
         <item name="tabSelectedTextColor">@color/text_green</item>
         <item name="tabIndicatorColor">@color/text_green</item>
-        <item name="android:textAppearance">@style/TabTextAppearance</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabTextAppearance">@style/TabTextAppearance</item>
     </style>
 
     <style name="Text" parent="Widget.MaterialComponents.TextView">

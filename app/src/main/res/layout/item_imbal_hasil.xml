@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:layout_weight="1"
-    android:layout_margin="5dp"
+    android:paddingHorizontal="6dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
     <LinearLayout
@@ -13,7 +13,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:padding="12dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -26,7 +26,7 @@
             android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:paddingTop="10dp"
             tools:text="BNI-AM Inspiring Equity Fund aasdasdas asdas das"
             android:lines="3"
             android:ellipsize="end"
@@ -37,7 +37,8 @@
         android:id="@+id/tvLabelType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="8dp"
         android:text="Jenis reksa dana"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -45,8 +46,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -62,7 +62,8 @@
         android:id="@+id/tvLabelImbalHasil"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
         android:text="Imbal hasil"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -70,8 +71,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -87,7 +87,8 @@
         android:id="@+id/tvLabelDanaKelolaan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
         android:text="Dana kelolaan"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -95,8 +96,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -112,7 +112,8 @@
         android:id="@+id/tvLabelMinPembelian"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
         android:text="Min. pembelian"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -120,8 +121,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -137,7 +137,8 @@
         android:id="@+id/tvLabelJangaWaktu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
         android:text="Jangka waktu"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -145,8 +146,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -162,7 +162,8 @@
         android:id="@+id/tvLabelTingkatResiko"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
         android:text="Tingkat resiko"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -170,8 +171,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -187,7 +187,8 @@
         android:id="@+id/tvLabelPeluncuran"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:paddingTop="24dp"
+        android:paddingBottom="8dp"
         android:text="Peluncuran"
         style="@style/Text.Small.Medium"/>
     <LinearLayout
@@ -195,8 +196,7 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:padding="7dp"
+        android:padding="8dp"
         android:background="@drawable/bg_rounded"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
@@ -208,16 +208,25 @@
             style="@style/Text.Small.Medium.Black"/>
     </LinearLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="5dp"
-        style="@style/Button.Stroke"
-        android:text="Detail" />
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.Stroke"
+            android:text="Detail" />
+    </FrameLayout>
 
-    <com.google.android.material.button.MaterialButton
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        style="@style/Button.Solid"
-        android:text="Beli" />
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp">
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/Button.Solid"
+            android:text="Beli" />
+    </FrameLayout>
 </LinearLayout>

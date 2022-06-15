@@ -33,7 +33,6 @@ class PerbandinganViewModel @Inject constructor(private val repository: Perbandi
         _perbandinganData.postValue(ResultWrapper.loading())
         viewModelScope.launch {
             val result = repository.getPerbandinganData()
-            Log.d("TAG", "getPerbandinganData: $result")
             _perbandinganData.postValue(result)
         }
     }
@@ -42,7 +41,6 @@ class PerbandinganViewModel @Inject constructor(private val repository: Perbandi
         _chartData.postValue(ResultWrapper.loading())
         viewModelScope.launch {
             val result = repository.getPerbandinganChartData()
-            Log.d("TAG", "getPerbandinganChartData: $result")
             _chartData.postValue(result)
         }
     }
@@ -76,11 +74,9 @@ class PerbandinganViewModel @Inject constructor(private val repository: Perbandi
                 mapData[compareModel.codeName]?.let {
                     listDataSet.add(it)
                 }
-                Log.d("TAG", "processChartData: ${compareModel.codeName}")
             }
         } else {
             mapData.keys.forEach { key ->
-                Log.d("TAG", "processChartData: $key")
                 mapData[key]?.let { it1 ->
                     listDataSet.add(it1)
                 }

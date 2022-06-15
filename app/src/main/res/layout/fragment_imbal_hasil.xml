@@ -15,9 +15,10 @@
             android:id="@+id/llLegends"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
+            android:layout_margin="16dp"
             android:orientation="horizontal"
-            android:padding="5dp"
+            android:paddingHorizontal="4dp"
+            android:paddingVertical="6dp"
             android:gravity="center"
             android:background="@drawable/bg_rounded"
             app:layout_constraintHorizontal_bias="0"
@@ -32,62 +33,72 @@
                 android:id="@+id/tvPercentGreen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="4dp"
                 android:text="-"
                 style="@style/Text.Small.Bold.Black"/>
 
             <ImageView
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
                 android:src="@drawable/bg_circle_purple"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvPercentPurple"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="4dp"
                 android:text="-"
                 style="@style/Text.Small.Bold.Black"/>
 
             <ImageView
+                android:id="@+id/ivPercentBlue"
                 android:layout_width="15dp"
                 android:layout_height="15dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="8dp"
+                android:visibility="gone"
                 android:src="@drawable/bg_circle_blue"/>
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvPercentBlue"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="4dp"
                 android:text="-"
+                android:visibility="gone"
                 style="@style/Text.Small.Bold.Black"/>
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/tvDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="(20 Jan 2020)"
+                android:layout_marginLeft="8dp"
+                tools:text="(20 Jan 2020)"
                 style="@style/Text.XSmall.Medium"/>
         </LinearLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glChart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.3"/>
+
         <com.kennyc.view.MultiStateView
             android:id="@+id/msvLineChart"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="2dp"
             app:msv_viewState="content"
             app:msv_errorView="@layout/default_error_layout"
             app:msv_loadingView="@layout/default_loading_layout"
             app:layout_constraintTop_toBottomOf="@id/llLegends"
+            app:layout_constraintBottom_toBottomOf="@id/glChart"
             app:layout_constraintRight_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent">
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/lineChart"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_marginTop="10dp"
-                app:layout_constraintTop_toBottomOf="@id/llLegends"
-                app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"/>
+                android:layout_height="match_parent" />
         </com.kennyc.view.MultiStateView>
 
         <com.google.android.material.tabs.TabLayout
@@ -95,12 +106,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TabStyle"
+            android:layout_marginHorizontal="16dp"
             app:layout_constraintTop_toBottomOf="@id/msvLineChart" />
 
         <com.kennyc.view.MultiStateView
             android:id="@+id/msvPerbandinganView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             app:msv_errorView="@layout/default_error_layout"
             app:msv_loadingView="@layout/default_loading_layout"
             app:layout_constraintTop_toBottomOf="@id/tabLayoutHome">
@@ -108,7 +121,9 @@
                 android:id="@+id/customPerbandinganView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:background="@color/surface_bg"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="16dp"
                 app:layout_constraintTop_toBottomOf="@id/tabLayoutHome" />
         </com.kennyc.view.MultiStateView>
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -48,55 +48,63 @@ class ImbalHasilFragment : Fragment() {
     }
 
     private fun setupChart(){
-        binding.lineChart.description.isEnabled = false
-        binding.lineChart.marker = object : MarkerView(requireContext(), R.layout.item_tooltip) {
-            override fun refreshContent(e: Entry?, highlight: Highlight?) {
-                val v = this.findViewById<ImageView>(R.id.ivTooltip)
-                when(highlight?.dataSetIndex) {
-                    0 -> v?.setImageResource(R.drawable.bg_circle_green)
-                    1 -> v?.setImageResource(R.drawable.bg_circle_purple)
-                    2 -> v?.setImageResource(R.drawable.bg_circle_blue)
+        binding.lineChart.apply {
+            description.isEnabled = false
+            legend.isEnabled = false
+            isDragEnabled = true
+            setDrawGridBackground(true)
+            setGridBackgroundColor(ContextCompat.getColor(requireContext(),android.R.color.transparent))
+            setTouchEnabled(true)
+            setScaleEnabled(false)
+            axisLeft.setDrawGridLines(false)
+            axisLeft.isEnabled = false
+            axisRight.setDrawAxisLine(false)
+            axisRight.xOffset = 20f
+            axisRight.isEnabled = true
+            axisRight.valueFormatter = YAxisValueFormatter()
+            xAxis.setDrawGridLines(false)
+            xAxis.valueFormatter = XAxisValueFormatter()
+            xAxis.granularity = 1F
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
+
+            marker = object : MarkerView(requireContext(), R.layout.item_tooltip) {
+                override fun refreshContent(e: Entry?, highlight: Highlight?) {
+                    val v = this.findViewById<ImageView>(R.id.ivTooltip)
+                    when(highlight?.dataSetIndex) {
+                        0 -> v?.setImageResource(R.drawable.bg_circle_green)
+                        1 -> v?.setImageResource(R.drawable.bg_circle_purple)
+                        2 -> v?.setImageResource(R.drawable.bg_circle_blue)
+                    }
+                    super.refreshContent(e, highlight)
                 }
-                super.refreshContent(e, highlight)
+
+                override fun getOffset(): MPPointF {
+                    return MPPointF(-(width / 2).toFloat(), (-height/2).toFloat())
+                }
             }
 
-            override fun getOffset(): MPPointF {
-                return MPPointF(-(width / 2).toFloat(), (-height/2).toFloat())
-            }
-        }
-        binding.lineChart.setDrawGridBackground(true)
-        binding.lineChart.setGridBackgroundColor(ContextCompat.getColor(requireContext(),android.R.color.transparent))
-        binding.lineChart.axisLeft.setDrawGridLines(false)
-        binding.lineChart.xAxis.setDrawGridLines(false)
-        binding.lineChart.setTouchEnabled(true)
-        binding.lineChart.isDragEnabled = true
-        binding.lineChart.setScaleEnabled(false)
-        binding.lineChart.axisLeft.isEnabled = false
-        binding.lineChart.axisRight.isEnabled = true
-        binding.lineChart.legend.isEnabled = false
-        binding.lineChart.setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
-            override fun onValueSelected(e: Entry, h: Highlight?) {
-                if (h!=null) {
-                    val selected = viewModel.onChartSelected(e, h)
-                    Log.d("TAG", "onValueSelected: ${selected.first}, ${selected.second}")
-                    binding.lineChart.highlightValues(selected.first.toTypedArray())
-                    if (selected.second.count()==3){
-                        binding.tvPercentGreen.text = String.format("${selected.second[0].y} %%")
-                        binding.tvPercentPurple.text = String.format("${selected.second[1].y} %%")
-                        binding.tvPercentBlue.text = String.format("${selected.second[2].y} %%")
-                        binding.tvDate.text = Utils.formatDate("dd MMM yyyy", selected.second[0].x.toLong())
+            setOnChartValueSelectedListener(object : OnChartValueSelectedListener {
+                override fun onValueSelected(e: Entry, h: Highlight?) {
+                    if (h!=null) {
+                        val selected = viewModel.onChartSelected(e, h)
+                        binding.lineChart.highlightValues(selected.first.toTypedArray())
+                        if (selected.second.count()==3){
+                            binding.tvPercentGreen.text = String.format("${selected.second[0].y} %%")
+                            binding.tvPercentPurple.text = String.format("${selected.second[1].y} %%")
+                            binding.tvPercentBlue.text = String.format("${selected.second[2].y} %%")
+                            binding.tvDate.text = Utils.formatDate("dd MMM yyyy", selected.second[0].x.toLong())
+                        }
+                        if (selected.second.count()==2){
+                            binding.tvPercentGreen.text = String.format("${selected.second[0].y} %%")
+                            binding.tvPercentPurple.text = String.format("${selected.second[1].y} %%")
+                            binding.tvDate.text = Utils.formatDate("dd MMM yyyy", selected.second[0].x.toLong())
+                        }
                     }
                 }
-            }
 
-            override fun onNothingSelected() {}
-        })
-        binding.lineChart.xAxis.apply {
-            valueFormatter = XAxisValueFormatter()
-            granularity = 1F
-            position = XAxis.XAxisPosition.BOTTOM
+                override fun onNothingSelected() {}
+            })
         }
-        binding.lineChart.axisRight.valueFormatter = YAxisValueFormatter()
     }
 
     private fun initTab(){
@@ -109,7 +117,6 @@ class ImbalHasilFragment : Fragment() {
 
         binding.tabLayoutHome.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
             override fun onTabSelected(tab: TabLayout.Tab) {
-                //change percent
                 val type = when(tab.text.toString()){
                     "1W" -> ImbalHasilType.OneWeek
                     "1M" -> ImbalHasilType.OneMonth
@@ -139,6 +146,10 @@ class ImbalHasilFragment : Fragment() {
                 is ResultWrapper.Success -> {
                     binding.msvPerbandinganView.showDefaultState()
                     binding.customPerbandinganView.setPerbandinganData(it.data)
+                    if (it.data.count()>=3) {
+                        binding.ivPercentBlue.visibility = View.VISIBLE
+                        binding.tvPercentBlue.visibility = View.VISIBLE
+                    }
                     viewModel.getChartData()
                 }
                 is ResultWrapper.Failure -> {

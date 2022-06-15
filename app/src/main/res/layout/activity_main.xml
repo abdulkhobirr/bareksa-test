@@ -8,9 +8,9 @@
     <LinearLayout
         android:id="@+id/toolbarHome"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?actionBarSize"
         android:orientation="horizontal"
-        android:padding="20dp"
+        android:paddingHorizontal="20dp"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent">
         <ImageView
@@ -29,6 +29,7 @@
         android:id="@+id/tabLayoutHome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="16dp"
         style="@style/TabStyle"
         app:layout_constraintTop_toBottomOf="@id/toolbarHome" />
     <androidx.viewpager2.widget.ViewPager2
