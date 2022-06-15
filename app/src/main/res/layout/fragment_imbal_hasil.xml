@@ -70,25 +70,46 @@
                 android:text="(20 Jan 2020)"
                 style="@style/Text.XSmall.Medium"/>
         </LinearLayout>
-        <com.github.mikephil.charting.charts.LineChart
-            android:id="@+id/lineChart"
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/msvLineChart"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            app:msv_viewState="content"
+            app:msv_errorView="@layout/default_error_layout"
+            app:msv_loadingView="@layout/default_loading_layout"
             app:layout_constraintTop_toBottomOf="@id/llLegends"
             app:layout_constraintRight_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            app:layout_constraintRight_toRightOf="parent">
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/lineChart"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/llLegends"
+                app:layout_constraintRight_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+        </com.kennyc.view.MultiStateView>
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabLayoutHome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             style="@style/TabStyle"
-            app:layout_constraintTop_toBottomOf="@id/lineChart" />
-        <khobir.abdul.bareksa_test.ui.custom.PerbandinganView
-            android:id="@+id/customPerbandinganView"
+            app:layout_constraintTop_toBottomOf="@id/msvLineChart" />
+
+        <com.kennyc.view.MultiStateView
+            android:id="@+id/msvPerbandinganView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            app:layout_constraintTop_toBottomOf="@id/tabLayoutHome" />
+            app:msv_errorView="@layout/default_error_layout"
+            app:msv_loadingView="@layout/default_loading_layout"
+            app:layout_constraintTop_toBottomOf="@id/tabLayoutHome">
+            <khobir.abdul.bareksa_test.ui.custom.PerbandinganView
+                android:id="@+id/customPerbandinganView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                app:layout_constraintTop_toBottomOf="@id/tabLayoutHome" />
+        </com.kennyc.view.MultiStateView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

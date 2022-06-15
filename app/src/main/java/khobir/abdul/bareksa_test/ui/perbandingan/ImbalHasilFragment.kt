@@ -21,10 +21,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import khobir.abdul.bareksa_test.R
 import khobir.abdul.bareksa_test.databinding.FragmentImbalHasilBinding
 import khobir.abdul.bareksa_test.ui.custom.ImbalHasilType
-import khobir.abdul.bareksa_test.utils.XAxisValueFormatter
-import khobir.abdul.bareksa_test.utils.ResultWrapper
-import khobir.abdul.bareksa_test.utils.Utils
-import khobir.abdul.bareksa_test.utils.YAxisValueFormatter
+import khobir.abdul.bareksa_test.utils.*
 
 @AndroidEntryPoint
 class ImbalHasilFragment : Fragment() {
@@ -140,8 +137,17 @@ class ImbalHasilFragment : Fragment() {
         viewModel.perbandinganData.observe(viewLifecycleOwner) {
             when(it){
                 is ResultWrapper.Success -> {
+                    binding.msvPerbandinganView.showDefaultState()
                     binding.customPerbandinganView.setPerbandinganData(it.data)
                     viewModel.getChartData()
+                }
+                is ResultWrapper.Failure -> {
+                    binding.msvPerbandinganView.showErrorState(it.message, it.title){
+                        viewModel.getPerbandinganData()
+                    }
+                }
+                is ResultWrapper.Loading -> {
+                    binding.msvPerbandinganView.showLoadingState()
                 }
             }
         }
@@ -149,9 +155,18 @@ class ImbalHasilFragment : Fragment() {
         viewModel.chartData.observe(viewLifecycleOwner) {
             when(it){
                 is ResultWrapper.Success -> {
+                    binding.msvLineChart.showDefaultState()
                     val processedList = viewModel.processChartData(it.data)
                     binding.lineChart.data = LineData(processedList)
                     binding.lineChart.invalidate()
+                }
+                is ResultWrapper.Failure -> {
+                    binding.msvLineChart.showErrorState(it.message, it.title){
+                        viewModel.getChartData()
+                    }
+                }
+                is ResultWrapper.Loading -> {
+                    binding.msvLineChart.showLoadingState()
                 }
             }
         }
